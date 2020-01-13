@@ -37,8 +37,13 @@ ul {
 li {
     background-color: #bfbfbf;
     cursor: pointer;
-    margin-bottom: 0.5vh;
+    margin: 0.5vh 10px 0.5vh 10px;
     list-style: none;
     padding: 0 20px;
     height: 6vh;
+}
+
+li:hover, .selected {
+    margin: 0.5vh 0 0.5vh 0;
+    background-color: #8d8d8d;
 }

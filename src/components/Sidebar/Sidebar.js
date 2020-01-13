@@ -9,17 +9,22 @@ export const Search = ({ action }) => (
   </div>
 );
 
-const SearchResult = ({ text, ...props }) => <li {...props}>{text}</li>;
+const SearchResult = ({ text, selected, ...props }) => (
+  <li {...props} className={selected ? "selected" : ""}>
+    {text}
+  </li>
+);
 
-export const Sidebar = ({ actions, results }) => (
+export const Sidebar = ({ actions, selected, results }) => (
   <div className="container">
     <Search action={actions.searchAction} />
-    <ul role="search-list">
+    <ul>
       {results.map((item, index) => (
         <SearchResult
           text={item.text}
           key={index}
           onClick={() => actions.selectAction(index)}
+          selected={selected === index}
         />
       ))}
     </ul>
@@ -39,5 +44,5 @@ Sidebar.defaultProps = {
     searchAction: () => {},
     selectAction: () => {}
   },
-  results: [{ text: "Slot 1" }, { text: "Slot 2" }]
+  results: []
 };

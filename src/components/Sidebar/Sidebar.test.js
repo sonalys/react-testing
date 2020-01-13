@@ -20,8 +20,8 @@ test("Sidebar SearchList should receive props", () => {
   const { getByRole, rerender } = render(
     <Sidebar results={[{ text: "foo/bar" }]} />
   );
-  expect(getByRole("search-list").childElementCount).toEqual(1);
+  expect(getByRole("list").childElementCount).toEqual(1);
   rerender(<Sidebar results={[{ text: "foo" }, { text: "bar" }]} />);
-  expect(getByRole("search-list").childElementCount).toEqual(2);
+  expect(getByRole("list").childElementCount).toEqual(2);
   cleanup();
 });

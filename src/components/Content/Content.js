@@ -4,7 +4,7 @@ import "./Content.css";
 
 export const Content = ({ article }) => {
   return (
-    <div className="content-container">
+    <div className="article-container">
       <h1>{article.title}</h1>
       {article.body}
     </div>

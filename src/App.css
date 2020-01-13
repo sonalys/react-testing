@@ -1,4 +1,4 @@
-.header {
+.app > .header {
   background-color: #282c34;
   height: 10vh;
   display: flex;
@@ -13,7 +13,7 @@
   z-index: 1000;
 }
 
-.body {
+.app > .body {
   display: grid;
   grid-template: "sidebar content" 100% / minmax(200px, 300px) 1fr;
 }

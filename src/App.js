@@ -3,15 +3,20 @@ import "./App.css";
 import { Sidebar } from "./components/Sidebar";
 import { Content } from "./components/Content";
 
+const articleFactory = (title, body) => ({
+  title,
+  body
+});
+
 const initialState = {
   result_list: [
     {
       text: "Slot 1 contains cool stuff",
-      article: { title: "Slot 1 is nuts", body: "Ihhu" }
+      article: articleFactory("Slot 1 is nuts", "Ihhu")
     },
     {
       text: "Slot 2 is dark",
-      article: { title: "Slot 2 is getting hot", body: "News everywhere" }
+      article: articleFactory("Slot 2 is getting hot", "News everywhere")
     }
   ],
   search: "",
@@ -46,28 +51,26 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-const actions = (type, payload) => {
+const actions = (dispatch, type, payload) => {
   switch (type) {
     default:
-      return {
-        type,
-        payload
-      };
+      dispatch({ type, payload });
+      return;
   }
 };
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const search = input => dispatch(actions(ACTION_TYPES.SEARCH, input));
-  const select = index => dispatch(actions(ACTION_TYPES.SELECT, index));
+  const search = input => actions(dispatch, ACTION_TYPES.SEARCH, input);
+  const select = index => actions(dispatch, ACTION_TYPES.SELECT, index);
   const getArticle = index => (state.results[index] || {}).article;
 
   useMemo(() => search(""), []);
 
   return (
     <div className="app">
-      <header className="header">🔥 React Testing</header>
+      <header className="header">React Testing</header>
       <div className="body">
         <Sidebar
           actions={{
@@ -75,6 +78,7 @@ const App = () => {
             selectAction: select
           }}
           results={state.results}
+          selected={state.selectedIndex}
         />
         <Content article={getArticle(state.selectedIndex)} />
       </div>
