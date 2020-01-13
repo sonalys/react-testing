@@ -1,0 +1,43 @@
+.container {
+    background-color: #dadada;
+    box-shadow: 2px 0px 20px 0px #ececec;
+
+    display: grid;
+    grid-template-rows: 6vh auto;
+}
+
+.searchContainer {
+    position: relative;
+    margin: 0 10px;
+}
+
+.search {
+    background-color: #f7f7f7;
+    box-shadow: 1px 7px 14px 0px #d2d2d2fa;
+    margin: 10px 0;
+    height: 35px;
+    width: 100%;
+    border-style: none;
+    text-indent: 35px;
+}
+
+.searchIcon {
+    width: 20px;
+    position: absolute;
+    top: 19px;
+    left: 8px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    background-color: #cacaca;
+}
+
+li {
+    background-color: #bfbfbf;
+    margin-bottom: 0.5vh;
+    list-style: none;
+    padding: 0 20px;
+    height: 6vh;
+}
