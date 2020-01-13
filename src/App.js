@@ -24,12 +24,12 @@ const initialState = {
   results: []
 };
 
-const ACTION_TYPES = {
+export const ACTION_TYPES = {
   SEARCH: "SEARCH",
   SELECT: "SELECT"
 };
 
-const reducer = (state, { type, payload }) => {
+export const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTION_TYPES.SEARCH:
       var search = payload || "";
