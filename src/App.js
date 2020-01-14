@@ -70,7 +70,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <header className="header">React Testing</header>
+      <header className="header">🔥 React Testing</header>
       <div className="body">
         <Sidebar
           actions={{
