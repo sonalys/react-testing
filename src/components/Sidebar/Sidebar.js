@@ -4,12 +4,12 @@ import "./Sidebar.css";
 
 export const Search = ({ action }) => (
   <div className="searchContainer">
-    <input className="search" placeholder="Procurar" onChange={action} />
+    <input className="search" placeholder="Procurar" onKeyUp={action} />
     <img src="search.png" alt="" className="searchIcon" />
   </div>
 );
 
-const SearchResult = ({ text, selected, ...props }) => (
+export const SearchResult = ({ text, selected, ...props }) => (
   <li {...props} className={selected ? "selected" : ""}>
     {text}
   </li>
@@ -36,7 +36,11 @@ Sidebar.propTypes = {
     searchAction: PropTypes.func,
     selectAction: PropTypes.func
   }),
-  results: PropTypes.array
+  results: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired
+    })
+  )
 };
 
 Sidebar.defaultProps = {

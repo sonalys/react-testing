@@ -1,7 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 import { render, cleanup } from "@testing-library/react";
-import { reducer, ACTION_TYPES } from "./App";
+import App, { reducer, ACTION_TYPES } from "./App";
 
 const initialState = {
     result_list: [ { text: 'slot 1' }, { text: 'foo/bar'}],
@@ -9,6 +9,11 @@ const initialState = {
     search: "",
     selectedIndex: -1
 };
+
+test("App should render", () => {
+    const app = render(<App />);
+    expect(app).toMatchSnapshot();
+  });
 
 test("Search action", () => {
     const search_action = { type: ACTION_TYPES.SEARCH, payload: "1" }
