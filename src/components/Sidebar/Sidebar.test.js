@@ -1,7 +1,7 @@
-import React from "react";
 import "@testing-library/jest-dom/extend-expect";
-import { render, cleanup, fireEvent } from "@testing-library/react";
-import { Sidebar, SearchResult, Search } from "./Sidebar";
+import { cleanup, fireEvent, render } from "@testing-library/react";
+import React from "react";
+import { Search, SearchResult, Sidebar } from "./Sidebar";
 
 afterEach(cleanup);
 
@@ -34,7 +34,11 @@ test("Search should search when typing", () => {
   const mockCallback = jest.fn();
   const app = render(<Search action={mockCallback} />);
 
-  fireEvent.keyUp(app.getByRole("textbox"), { key: 'A', code: 65, charCode: 65 })
+  fireEvent.keyUp(app.getByRole("textbox"), {
+    key: "A",
+    code: 65,
+    charCode: 65
+  });
   expect(mockCallback.mock.calls.length).toBe(1);
 });
 

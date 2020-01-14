@@ -1,7 +1,7 @@
-import React, { useReducer, useMemo } from "react";
+import React, { useMemo, useReducer } from "react";
 import "./App.css";
-import { Sidebar } from "./components/Sidebar";
 import { Content } from "./components/Content";
+import { Sidebar } from "./components/Sidebar";
 
 const articleFactory = (title, body) => ({
   title,
